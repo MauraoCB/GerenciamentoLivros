@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace GerenciamentoLivros.Repositories;
 
@@ -9,4 +10,5 @@ public interface IRepository<T> where T : class
     Task<T> AddAsync(T entity);
     Task UpdateAsync(T entity);
     Task DeleteAsync(int id);
+    IQueryable<T> GetQuery();
 }

@@ -24,16 +24,28 @@ public class BookService : IBookService
 
     public async Task<IEnumerable<BookViewModel>> GetAllAsync()
     {
-        var books = await _repository.GetAllAsync();
-        var bookViewModels = new List<BookViewModel>();
-        foreach (var book in books)
-        {
-            var vm = _mapper.Map<BookViewModel>(book);
-            vm.AuthorName = book.Author?.Name ?? string.Empty;
-            vm.GenreName = book.Genre?.Name ?? string.Empty;
-            bookViewModels.Add(vm);
-        }
-        return bookViewModels;
+        var books = await _repository.GetQuery()
+            .Include(b => b.Author)
+            .Include(b => b.Genre)
+            .Select(b => new BookViewModel
+            {
+                Id = b.Id,
+                IdGenre = b.IdGenre,
+                IdAuthor = b.IdAuthor,
+                Title = b.Title,
+                Synopsis = b.Synopsis,
+                ISBN = b.ISBN,
+                Edition = b.Edition,
+                PublicationYear = b.PublicationYear,
+                CreationDate = b.CreationDate,
+                UpdateDate = b.UpdateDate,
+                UpdateUser = b.UpdateUser,
+                AuthorName = b.Author != null ? b.Author.Name : string.Empty,
+                GenreName = b.Genre != null ? b.Genre.Name : string.Empty
+            })
+            .ToListAsync();
+
+        return books;
     }
 
     public async Task<BookViewModel?> GetByIdAsync(int id)
