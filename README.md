@@ -54,8 +54,8 @@ Este documento contém instruções detalhadas para executar tanto o backend qua
    ```bash
    dotnet run
    ```
-2. **O backend estará disponível em:** `https://localhost:7001`
-3. **Swagger UI estará em:** `https://localhost:7001/swagger`
+2. **O backend estará disponível em:** `https://localhost:5070`
+3. **Swagger UI estará em:** `https://localhost:5070/swagger`
 
 ## 🌐 Configuração do Frontend
 
@@ -89,7 +89,7 @@ Este documento contém instruções detalhadas para executar tanto o backend qua
    # ou
    bun dev
    ```
-2. **O frontend estará disponível em:** `http://localhost:5173`
+2. **O frontend estará disponível em:** `http://localhost:8080`
 
 ## 🧪 Testando a Integração
 
@@ -134,14 +134,14 @@ Este documento contém instruções detalhadas para executar tanto o backend qua
 ## 📱 Estrutura de URLs
 
 ### Backend
-- **API Base:** `https://localhost:7001/api/v1`
-- **Swagger:** `https://localhost:7001/swagger`
+- **API Base:** `https://localhost:5070/api/v1`
+- **Swagger:** `https://localhost:50570/swagger`
 
 ### Frontend
-- **Aplicação:** `http://localhost:5173`
-- **Livros:** `http://localhost:5173/books`
-- **Autores:** `http://localhost:5173/authors`
-- **Gêneros:** `http://localhost:5173/genres`
+- **Aplicação:** `http://localhost:8080`
+- **Livros:** `http://localhost:8080/books`
+- **Autores:** `http://localhost:8080/authors`
+- **Gêneros:** `http://localhost:8080/genres`
 
 ## 🚀 Comandos Rápidos
 
